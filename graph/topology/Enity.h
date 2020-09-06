@@ -8,7 +8,7 @@ class Enity
     public:
         virtual bool hasProperty() = 0
 
-
+        virtual 
 };
 
 #endif

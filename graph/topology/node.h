@@ -1,9 +1,14 @@
 #ifndef NODE_H
 #define NODE_H
 
-class Node
+#include "Enity.h"
+
+template <class T>
+class Node: public Enity
 {
-    
+    private:
+
+    public:
 };
 
 #endif

@@ -25,6 +25,8 @@ class Property
         void getValue();
 
         void setValue();
+
+        static bool isEqual(Property& a, Property& b);
 };
 
 #endif
