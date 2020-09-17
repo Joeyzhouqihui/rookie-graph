@@ -18,15 +18,15 @@ enum FileType {
 class Requests
 {
     public:
-        size_t *offsets;
+        int *offsets;
 
-        size_t *bytes;
+        int *bytes;
         
         void **buffers;
 
         Requests();
 
-        void addRequest(size_t offset, size_t byte, void *buffer);
+        void addRequest(int offset, int byte, void *buffer);
 
 };
 
@@ -34,7 +34,7 @@ class IoSlave
 {
     private:
         // There may be several threads than read a common file at the same time.
-        const short max_reader_num, max_request_num, timeout;
+        const short maxReaderNum, maxRequestNum, timeout;
 
         FileManager* fileReaderPool;
 
@@ -51,9 +51,9 @@ class IoSlave
     public:
         IoSlave(int num1, int num2, double time);
 
-        void addReadRequest(size_t offset, size_t byte, void *buffer);
+        void addReadRequest(int offset, int byte, void *buffer);
 
-        void addWriteRequest(size_t offset, size_t byte, void *buffer);
+        void addWriteRequest(int offset, int byte, void *buffer);
 
         void doReads();
 
@@ -75,11 +75,11 @@ class IoManager
     public:
         IoManager();
 
-        void read(FileType fileType, size_t offset, size_t byte, void *buffer);
+        void read(FileType fileType, int offset, int byte, void *buffer);
 
-        void write(FileType fileType, size_t offset, size_t byte, void *buffer);
+        void write(FileType fileType, int offset, int byte, void *buffer);
 
-        void append(FileType fileType, size_t offset, size_t byte, void *buffer);
+        void append(FileType fileType, int offset, int byte, void *buffer);
 };
 
 #endif
